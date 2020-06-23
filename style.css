@@ -1,0 +1,17 @@
+input {
+    position: absolute;
+    top: 350px;
+    left: 405px;
+}
+
+button {
+    position: absolute;
+    top: 350px;
+    left: 625px;
+}
+
+img {
+    position: absolute;
+    top: 400px;
+    left: 360px;
+}
