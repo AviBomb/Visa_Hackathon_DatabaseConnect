@@ -94,13 +94,13 @@
             var res1 = str.split(" ");
             console.log(res1);
             var data = {
-                Name: NameInput.value(),
-                Description: DescriptionInput.value(),
-                Tags: res,
-                Picture: imglink,
-                OtherPicture: otherimg,
-                DonationTiers: res1,
-                Money: MoneyInput.value()
+                name: NameInput.value(),
+                description: DescriptionInput.value(),
+                tags: res,
+                coverPhoto: imglink,
+                additionalPhotos: otherimg,
+                donationTiers: res1,
+                money: MoneyInput.value()
             }
             console.log(data)
             var database = firebase.database();
