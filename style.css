@@ -1,17 +1,17 @@
 input {
     position: absolute;
-    top: 350px;
-    left: 800px;
+    top: 450px;
+    left: 750px;
 }
 
 button {
     position: absolute;
-    top: 350px;
+    top: 450px;
     left: 1000px;
 }
 
 img {
     position: absolute;
-    top: 50px;
+    top: 150px;
     left: 700px;
 }
