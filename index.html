@@ -12,7 +12,7 @@
 <body>
     <input type="file" id="photo">
     <br>
-    <img id="image" width="420" height="250" />
+    <img id="image" width="450" height="250" />
     <br>
     <button onclick="uploadImage()">Upload Image</button>
 </body>
@@ -42,6 +42,9 @@
         var DonationTiersInput;
         var MoneyInput;
         var submitButton;
+        var CardNumberInput;
+        var EXPInput;
+        var CVVInput;
 
 
         NameInput = createInput('Name');
@@ -54,8 +57,19 @@
         DonationTiersInput.position(480, 215);
         MoneyInput = createInput('Money');
         MoneyInput.position(480, 265);
+
+        CardNumberInput = createInput('Card Number');
+        CardNumberInput.position(480, 315);
+
+        EXPInput = createInput('EXP');
+        EXPInput.position(480, 365);
+
+        CVVInput = createInput('CVV');
+        CVVInput.position(480, 415);
+
         submitButton = createButton('Submit');
-        submitButton.position(535, 305);
+        submitButton.position(535, 565);
+
         greeting = createElement('h4', 'Charity Name');
         greeting.position(480, 20);
         greeting = createElement('h4', 'Description');
@@ -66,6 +80,16 @@
         greeting.position(480, 170);
         greeting = createElement('h4', 'Money');
         greeting.position(480, 220);
+
+        greeting = createElement('h4', 'Card Number');
+        greeting.position(480, 270);
+
+        greeting = createElement('h4', 'EXP');
+        greeting.position(480, 320);
+
+        greeting = createElement('h4', 'CVV');
+        greeting.position(480, 370);
+
         submitButton.mousePressed(ResetPage);
 
         // Your web app's Firebase configuration
@@ -81,7 +105,9 @@
         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
         firebase.analytics();
         console.log(firebase)
 
@@ -100,11 +126,15 @@
                 coverPhoto: imglink,
                 additionalPhotos: otherimg,
                 donationTiers: res1,
-                money: MoneyInput.value()
-            }
-            console.log(data)
+                money: MoneyInput.value(),
+                cardNumber: CardNumberInput.value(),
+                exp: EXPInput.value(),
+                cvv: CVVInput.value()
+            };
+            console.log(EXPInput);
+            console.log('data:', data);
             var database = firebase.database();
-            var ref = database.ref('Charity')
+            var ref = database.ref('Charity');
             ref.push(data);
         }
 
@@ -115,12 +145,12 @@
             console.log(otherimg)
             imglink = [];
             otherimg = [];
-            console.log(imglink)
-            console.log(otherimg)
-            const image = document.querySelector('#image')
-            image.src = ""
-            const photo = document.querySelector('#photo')
-            photo.type = "file"
+            console.log(imglink);
+            console.log(otherimg);
+            const image = document.querySelector('#image');
+            image.src = "";
+            const photo = document.querySelector('#photo');
+            photo.type = "file";
             setup();
         }
     }
