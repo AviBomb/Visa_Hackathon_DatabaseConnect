@@ -41,6 +41,7 @@
         var TagsInput;
         var MoneyInput;
         var submitButton;
+        var CharityLink;
         var CardNumberInput;
         var EXPInput;
         var CVVInput;
@@ -52,6 +53,9 @@
         DescriptionInput.position(480, 115);
         TagsInput = createInput('Tags');
         TagsInput.position(480, 165);
+
+        CharityLink = createInput('Charity Link');	
+        CharityLink.position(480, 215);
 
         MoneyInput = createInput('Money');
         MoneyInput.position(480, 265);
@@ -74,6 +78,8 @@
         greeting.position(480, 70);
         greeting = createElement('h4', 'Tags');
         greeting.position(480, 120);
+        greeting = createElement('h4', 'Charity Link');	
+        greeting.position(480, 170);
         greeting = createElement('h4', 'Money');
         greeting.position(480, 220);
 
@@ -114,6 +120,7 @@
                 name: NameInput.value(),
                 description: DescriptionInput.value(),
                 tags: res,
+                charityLink: CharityLink.value(),
                 coverPhoto: imglink,
                 additionalPhotos: otherimg,
                 money: MoneyInput.value(),
